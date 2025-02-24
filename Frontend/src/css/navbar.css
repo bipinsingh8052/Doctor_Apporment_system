@@ -1,0 +1,30 @@
+.modelss{
+    display: flex;
+    margin-bottom: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+.modelss div{
+    width: 50%;
+}
+
+@media (max-width: 420px) {
+    .modelss{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-between;
+    }
+    .modelss div{
+        width: 80%;
+    }
+    .headingmodel{
+        font-size: 15px;
+    }
+    
+}

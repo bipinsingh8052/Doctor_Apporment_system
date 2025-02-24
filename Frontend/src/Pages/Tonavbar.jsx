@@ -6,6 +6,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios'
+import Form from 'react-bootstrap/Form';
+import '../css/navbar.css'
 
 export default function Tonavbar() {
     const [input,setinput]=useState({});
@@ -54,10 +56,10 @@ export default function Tonavbar() {
 
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Registration From Only For Doctor's</Modal.Title>
+          <Modal.Title className='headingmodel'>Registration From Only For Doctor's</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div style={{display:'flex', marginBottom:"10px", width:"100%", alignItems:"center" ,justifyItems:"center", justifyContent:"space-between" }}>
+            <div className='modelss' >
                <div  >
                <label htmlFor="">Enter Name  <span style={{ color:"red"}}>*</span></label>
                <input type="text" name='name' onChange={Handleinput} required style={{outline:"none"}} />
@@ -67,17 +69,24 @@ export default function Tonavbar() {
                <input type="email" name='email' onChange={Handleinput}  required style={{outline:"none"}} />
                </div>
             </div>
-            <div style={{display:'flex', marginBottom:"10px",justifyContent:"space-between"  }}>
+            <div className='modelss'>
                <div  >
                <label htmlFor=""> Select option<span style={{ color:"red"}}>*</span></label>
-               <input type="text" style={{outline:"none"}} />
+               <Form.Select aria-label="Default select example" name="speciality" onChange={Handleinput} style={{width:"80%"}}>
+               <option>Open this select menu</option>
+          <option value="Cardiologist">Cardiologist</option>
+          <option value="ENT">ENT</option>
+          <option value="Neuro Surgeon">Neuro Surgeon</option>
+          <option value="Dentist">Dentist</option>
+          <option value="Plastic Surgeon">Plastic Surgeon</option>
+    </Form.Select>
                </div>
                <div>
                <label htmlFor="">Enter Mobile no.<span style={{ color:"red"}}>*</span></label>
                <input type="tel" name='mobile' onChange={Handleinput} required style={{outline:"none"}} />
                </div>
             </div>
-            <div style={{display:'flex', marginBottom:"10px" ,justifyContent:"space-between" }}>
+            <div className='modelss'>
                <div   >
                <label htmlFor="">Enter city   <span style={{ color:"red"}}>*</span></label>
                <input type="text" name='city' onChange={Handleinput} required style={{outline:"none"}} />
