@@ -4,19 +4,21 @@ import { HiOutlineMailOpen } from "react-icons/hi";
 import { IoMdCall } from "react-icons/io";
 import '../css/card.css'
 import axios from 'axios'
-
+import Confi from '../Confi';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function CardSsection() {
   let[data,setData]=useState([]);
 
   let loading=async()=>{
-    let api=""
+    let api=`${Confi}/display`
     try {
       let resp= await axios.get(api);
-      console.log(resp)
+      // console.log(resp.data)
+      setData(resp.data);
       
     } catch (error) {
-      console.log("erroe")
+      toast.error(error.response.data.msg)
       
     }
   }
@@ -24,154 +26,28 @@ export default function CardSsection() {
   return (
     <>
     <div className="all_carts">
-    <div className='card_container'>
+   {
+    data.map((e,index)=>{
+      return(
+
+        <div className='card_container' key={index}>
     
-    <div className="cart_left">
-    
-      <h5><span>Dr</span> Bipin singh</h5>
-      <h6>tyuiojhvbnmkjhg</h6>
-      <p><span><IoMdCall/></span> 1324567890</p>
-      <p> <span><HiOutlineMailOpen/></span>email</p>
-      <p><span><FaLocationDot/></span>city</p>
-     
-     
+          <div className="cart_left">
+          
+            <h5><span>Dr</span> {e.name}</h5>
+            <h6>{e.specailization}</h6>
+            <p><span><IoMdCall/></span> {e.mobileNo}</p>
+            <p> <span><HiOutlineMailOpen/></span>{e.Email}</p>
+            <p><span><FaLocationDot/></span>{e.city}</p>
+          </div>
+          <div className="cart_right">
+          </div>
+        </div>
+      )
+    })
+   }
     </div>
-    <div className="cart_right">
-
-</div>
-    
-    
-  </div>
-  <div className='card_container'>
-    
-      <div className="cart_left">
-      
-        <h5>DR Bipin singh</h5>
-        <h6>tyuiojhvbnmkjhg</h6>
-        <p><span><IoMdCall/></span> 1324567890</p>
-        <p> <span><HiOutlineMailOpen/></span>email</p>
-        <p><span><FaLocationDot/></span>city</p>
-       
-       
-      </div>
-      <div className="cart_right">
-
-</div>
-      
-      
-    </div>
-    <div className='card_container'>
-    
-      <div className="cart_left">
-      
-        <h5>DR Bipin singh</h5>
-        <h6>tyuiojhvbnmkjhg</h6>
-        <p><span><IoMdCall/></span> 1324567890</p>
-        <p> <span><HiOutlineMailOpen/></span>email</p>
-        <p><span><FaLocationDot/></span>city</p>
-       
-       
-      </div>
-      <div className="cart_right">
-
-</div>
-      
-      
-    </div>
-    <div className='card_container'>
-    
-      <div className="cart_left">
-      
-        <h5>DR Bipin singh</h5>
-        <h6>tyuiojhvbnmkjhg</h6>
-        <p><span><IoMdCall/></span> 1324567890</p>
-        <p> <span><HiOutlineMailOpen/></span>email</p>
-        <p><span><FaLocationDot/></span>city</p>
-       
-       
-      </div>
-      <div className="cart_right">
-
-</div>
-      
-      
-    </div>
-    <div className='card_container'>
-    
-      <div className="cart_left">
-      
-        <h5>DR Bipin singh</h5>
-        <h6>tyuiojhvbnmkjhg</h6>
-        <p><span><IoMdCall/></span> 1324567890</p>
-        <p> <span><HiOutlineMailOpen/></span>email</p>
-        <p><span><FaLocationDot/></span>city</p>
-       
-       
-      </div>
-      <div className="cart_right">
-
-</div>
-      
-      
-    </div>
-
-
-    <div className='card_container'>
-    
-      <div className="cart_left">
-      
-        <h5>DR Bipin singh</h5>
-        <h6>tyuiojhvbnmkjhg</h6>
-        <p><span><IoMdCall/></span> 1324567890</p>
-        <p> <span><HiOutlineMailOpen/></span>email</p>
-        <p><span><FaLocationDot/></span>city</p>
-       
-       
-      </div>
-      <div className="cart_right">
-
-</div>
-      
-      
-    </div>
-    <div className='card_container'>
-    
-      <div className="cart_left">
-      
-        <h5>DR Bipin singh</h5>
-        <h6>tyuiojhvbnmkjhg</h6>
-        <p><span><IoMdCall/></span> 1324567890</p>
-        <p> <span><HiOutlineMailOpen/></span>email</p>
-        <p><span><FaLocationDot/></span>city</p>
-       
-       
-      </div>
-      <div className="cart_right">
-
-</div>
-      
-      
-    </div>
-    <div className='card_container'>
-    
-      <div className="cart_left">
-      
-        <h5>DR Bipin singh</h5>
-        <h6>tyuiojhvbnmkjhg</h6>
-        <p><span><IoMdCall/></span> 1324567890</p>
-        <p> <span><HiOutlineMailOpen/></span>email</p>
-        <p><span><FaLocationDot/></span>city</p>
-       
-       
-      </div>
-      <div className="cart_right">
-
-</div>
-      
-      
-    </div>
-    </div>
-      
+      <Toaster/>
   </>
   )
 }

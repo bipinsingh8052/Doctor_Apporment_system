@@ -1,13 +1,16 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios'
 import Form from 'react-bootstrap/Form';
 import '../css/navbar.css'
+import Confi from '../Confi';
+import toast, { Toaster } from 'react-hot-toast';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Tonavbar() {
     const [input,setinput]=useState({});
@@ -18,12 +21,13 @@ export default function Tonavbar() {
     const handleShow = () => setShow(true);
 
     const handleSubmit=async(e)=>{
-        let api="";
+        let api=`${Confi}/signUp`;
         try {
             let response =await axios.post(api,input);
             console.log(response);
+            toast.success(response.data.msg)
         } catch (error) {
-            console.log("erroe")
+          toast.error(error.response.data.msg)
             
         }
 
@@ -34,6 +38,10 @@ export default function Tonavbar() {
     const Handleinput=(e)=>{
         let{name,value}=e.target;
         setinput(values=>({...values,[name]:value}));
+    }
+    let nav=useNavigate();
+    const loginDoctor=()=>{
+      nav("/Doctorlogin")
     }
 
   return (
@@ -47,7 +55,15 @@ export default function Tonavbar() {
             <Nav.Link as={Link} to="home" >Home</Nav.Link>
             <Nav.Link as={Link} to="home" >Link</Nav.Link>
             <Nav.Link as={Link} to="home">Link</Nav.Link>
-            <Nav.Link as={Link} onClick={handleShow} >Doctor Registration</Nav.Link>
+            <NavDropdown title=" Doctor's  " id="basic-nav-dropdown">
+              
+              <NavDropdown.Item  onClick={loginDoctor} >
+               Dr Login 
+              </NavDropdown.Item>
+              <NavDropdown.Item >Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} onClick={handleShow}>Doctor Registration</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -104,6 +120,8 @@ export default function Tonavbar() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <Toaster/>
     </>
   )
 }
