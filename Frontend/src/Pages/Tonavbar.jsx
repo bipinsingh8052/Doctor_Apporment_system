@@ -54,7 +54,7 @@ export default function Tonavbar() {
           <Nav className="me-auto  ">
             <Nav.Link as={Link} to="home" >Home</Nav.Link>
             <Nav.Link as={Link} to="home" >Link</Nav.Link>
-            <Nav.Link as={Link} to="home">Link</Nav.Link>
+            <Nav.Link as={Link} to="appointment">Appointment</Nav.Link>
             <NavDropdown title=" Doctor's  " id="basic-nav-dropdown">
               
               <NavDropdown.Item  onClick={loginDoctor} >

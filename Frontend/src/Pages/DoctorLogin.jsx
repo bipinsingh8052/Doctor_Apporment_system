@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Confi from "../Confi";
 import toast, { Toaster } from 'react-hot-toast';
+import { useDispatch } from "react-redux";
+import { insert } from "../slices/FirstSlice";
 export default function DoctorLogin() {
   
     let [login,setlogin]=useState({ });
     let nav=useNavigate();
+    let dispatch =useDispatch();
     function inputvalue(e){
      
       const {name,value}=e.target;
@@ -22,7 +25,9 @@ export default function DoctorLogin() {
       try {
         let response =await axios.post(api,login);
         // console.log(response.data);
-        toast.success( response.data.msg)
+        toast.success( "successfuly..!!")
+        dispatch(insert(response.data))
+        nav('/dashboard')
 
         
       } catch (error) {

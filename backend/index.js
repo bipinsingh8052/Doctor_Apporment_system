@@ -16,8 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 
-
-mongoose.connect(process.env.DBConnect).then(()=>{
+// console.log(process.env.DBConnect)
+mongoose.connect(process.env.DBConnect)
+.then(()=>{
     console.log("Connected the server");
 })
 .catch(()=>{
