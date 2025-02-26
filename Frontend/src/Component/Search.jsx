@@ -22,8 +22,6 @@ export default function Search() {
     const [id,setid]=useState("");
     const [status,setStatus]=useState(true);
     const [bookinput,setbookinput]=useState({});
-
-    // model
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -38,7 +36,7 @@ export default function Search() {
     // model
 
     let loading=async()=>{
-        let api=`${Confi}/display`
+        let api=`${Confi}/Doctor/display`
         try {
           let resp= await axios.get(api);
         //   console.log(resp.data)
@@ -51,6 +49,7 @@ export default function Search() {
         }
       }
      
+     
 
 
     // appoiment booking
@@ -59,8 +58,17 @@ export default function Search() {
         let{name,value}=e.target;
         setbookinput(vlaues=>({...vlaues,[name]:value}))
     }
-    const bookYourAppominet=()=>{
+    const bookYourAppominet=async()=>{
         console.log(bookinput)
+        let api =`${Confi}/patient/appoiment`;
+        try {
+            let response = await axios.post(api,{drid:id,...bookinput})
+            toast.success(response.data.msg)
+        } catch (error) {
+            toast.error(error.response.data.msg)
+            
+        }
+        handleClose()
     }
     // appoinment booking
 
@@ -84,7 +92,7 @@ export default function Search() {
     };
 
 const Searchit=async()=>{
-    let api=`${Confi}/search`;
+    let api=`${Confi}/Doctor/search`;
     try {
         let response =await axios.post(api,search);
         console.log(response.data)
@@ -198,7 +206,7 @@ useEffect(()=>{loading()
             <div className='modelss' >
                <div  >
                <label htmlFor="">Enter mobile  <span style={{ color:"red"}}>*</span></label>
-               <input type="tel" name='mobile'  required style={{outline:"none"}} onChange={handleinputbooking} />
+               <input type="number" name='mobile'  required style={{outline:"none"}} onChange={handleinputbooking} />
                </div>
                <div>
                <label htmlFor="">Enter Disease<span style={{ color:"red"}}>*</span></label>

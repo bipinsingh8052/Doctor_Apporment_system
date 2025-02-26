@@ -1,2 +1,2 @@
-const Confi="http://localhost:9090/Doctor";
+const Confi="http://localhost:9090";
 export default Confi;

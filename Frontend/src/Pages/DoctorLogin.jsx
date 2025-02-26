@@ -21,7 +21,7 @@ export default function DoctorLogin() {
   
     const  FromCheck=async(e)=>{
       e.preventDefault();
-      let api=`${Confi}/loginDoctor`;
+      let api=`${Confi}/Doctor/loginDoctor`;
       try {
         let response =await axios.post(api,login);
         // console.log(response.data);

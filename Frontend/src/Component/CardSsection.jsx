@@ -12,7 +12,7 @@ export default function CardSsection() {
   let[data,setData]=useState([]);
 
   let loading=async()=>{
-    let api=`${Confi}/display`
+    let api=`${Confi}/Doctor/display`
     try {
       let resp= await axios.get(api);
       // console.log(resp.data)

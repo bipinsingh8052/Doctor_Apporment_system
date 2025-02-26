@@ -21,7 +21,7 @@ export default function Tonavbar() {
     const handleShow = () => setShow(true);
 
     const handleSubmit=async(e)=>{
-        let api=`${Confi}/signUp`;
+        let api=`${Confi}/Doctor/signUp`;
         try {
             let response =await axios.post(api,input);
             console.log(response);

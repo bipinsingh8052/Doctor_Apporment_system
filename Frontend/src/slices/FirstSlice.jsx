@@ -12,7 +12,7 @@ const FirstSlice=createSlice({
             state.first=actions.payload;
         },
         deleted:(state,actions)=>{
-            console.log("delete")
+            state.first="";
         },
         show:(state,actions)=>{
             console.log("show");
