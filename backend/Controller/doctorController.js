@@ -1,4 +1,5 @@
 const modelDoctor=require("../model/DoctorModel")
+const modelPatient =require("../model/PatientModel")
 const signUpPage =async(req,res)=>{
     console.log(req.body);
     const {
@@ -44,16 +45,14 @@ const loginDoctor=async(req,res)=>{
     try {
         let data = await modelDoctor.findOne({Email:email});
         if(!data){
-            res.status(404).send({msg:"Invalid email try again !"})
+           return   res.status(404).send({msg:"Invalid email try again !"})
         }
         if(data.password != password ){
-            res.status(404).send({msg:"Invalid password try again !"})
+         return    res.status(404).send({msg:"Invalid password try again !"})
         }
        
         res.status(200).send(data)
         
-
-    
     } catch (error) {
        res.status(404).send({msg:"Not Found"}); 
     }
@@ -61,17 +60,22 @@ const loginDoctor=async(req,res)=>{
 }
 
 const searchPage=async(req,res)=>{
-    // console.log(req.body)
-    const {option, input}=req.body;
-    const options=option;
-    const inputs=input;
-    console.log(options,inputs)
+    console.log(req.body)
+    const{ option, input }=req.body;
+
+   
     try {
-        // let data =await modelDoctor.find({options:inputs});
-        // console.log(data)
-        res.send("okk")
+        let data =await modelDoctor.find({$or:[{"specailization":option},{"name":input}]})
+
+        console.log(data)
+        
+        if(data.length==0){
+            return res.status(400).send({msg:"not found"})
+        }
+           return res.status(200).send(data);
+        
     } catch (error) {
-        res.send("error")
+        res.status(400).send({msg:"api error"})
     }
     
 }

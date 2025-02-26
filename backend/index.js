@@ -5,7 +5,7 @@ const app =express();
 require("dotenv").config();
 const mongoose =require("mongoose");
 const router =require("./Router/Router")
-
+const patientRouter =require("./Router/Patient")
 
 app.use(cors());
 
@@ -29,6 +29,7 @@ mongoose.connect(process.env.DBConnect)
 
 let port =process.env.PORT||9090;
 app.use("/Doctor",router)
+app.use("/patient",patientRouter)
 
 app.listen(port,()=>{
     console.log(`http://localhost:${port}`);
