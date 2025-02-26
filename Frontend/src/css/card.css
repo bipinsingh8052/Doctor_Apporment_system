@@ -9,6 +9,25 @@
     justify-content: space-around;
 }
 
+.heading{
+    height: 50px;
+    width: 100%;
+    background-color: rgb(167, 15, 45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.heading .normal{
+   font-size: 25px;
+   color:whitesmoke;
+   padding: 20px;
+}
+
+
+
+
+
 .card_container{
     width: 300px;
     height: 250px;
@@ -67,7 +86,3 @@
     
 }
 
-
-@media (max-width: 420px) {
-
-}

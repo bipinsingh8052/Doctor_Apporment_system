@@ -6,6 +6,7 @@ import '../css/card.css'
 import axios from 'axios'
 import Confi from '../Confi';
 import toast, { Toaster } from 'react-hot-toast';
+import LiveDemo from './LiveDemo';
 
 export default function CardSsection() {
   let[data,setData]=useState([]);
@@ -25,6 +26,8 @@ export default function CardSsection() {
   useEffect(()=>{loading()},[])
   return (
     <>
+    <LiveDemo/>
+    <div className="heading"> <div className='normal'>My All Doctor's</div></div>
     <div className="all_carts">
    {
     data.map((e,index)=>{
@@ -48,6 +51,8 @@ export default function CardSsection() {
    }
     </div>
       <Toaster/>
+
+      
   </>
   )
 }

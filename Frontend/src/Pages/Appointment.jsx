@@ -1,11 +1,11 @@
+import Search from "../Component/Search";
 
 
 
 export default function Appointment() {
   return (
     <div>
-        Appointment
-      
+      <Search/>
     </div>
   )
 }

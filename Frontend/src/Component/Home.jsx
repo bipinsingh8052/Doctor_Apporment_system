@@ -1,7 +1,7 @@
 import React from 'react'
 import CardSsection from './CardSsection'
 import Carousel from 'react-bootstrap/Carousel';
-import Search from './Search';
+
 
 export default function Home() {
   return (
@@ -33,13 +33,6 @@ export default function Home() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-
-
-
-    <Search/>
-
-
-
       <CardSsection/>
     </>
   )

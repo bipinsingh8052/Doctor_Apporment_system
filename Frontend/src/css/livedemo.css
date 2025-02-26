@@ -1,0 +1,311 @@
+.liveDemo{
+    width: 100%;
+    height: 500px;
+    background-color: rgb(192, 212, 219);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    
+}
+.liveDemo .noramllive{
+    background-color: transparent;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.liveDemo .noramllive span{
+    color: red;
+}
+.liveDemo .cartslive{
+    height: 70%;
+    width: 100%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.liveDemo .cartslive .cardinfo{
+    width: 20%;
+    height: 80%;
+    /* border: 2px solid black; */
+    background-color: rgb(232, 234, 238);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border-radius: 20px;
+    gap: 10px;
+    border: 0.1px solid transparent;
+    /* padding-left: 20px; */
+
+}
+.liveDemo .cartslive .cardinfo:hover{
+border: 0.1px solid blueviolet;
+}
+.liveDemo .cartslive .cardinfo p {
+    font-size: 20px;
+    padding-left:20px;
+    padding-right: 20px;
+    font-weight: 600;
+    color: black;
+}
+.liveDemo .cartslive .cardinfo span {
+    font-size: 15px;
+    padding-left:20px;
+    padding-right: 20px;
+
+    color: rgb(70, 64, 64);
+}
+.liveDemo .cartslive .cardinfo .images{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    position: relative;
+    top: -40px;
+    background-color: whitesmoke;
+    border: 0.1px solid yellowgreen;
+}
+.liveDemo .cartslive .cardinfo .images p{
+    font-size: 50px;
+}
+.liveDemo .cartslive .cardinfo .images:hover{
+    background-color: skyblue;
+    border: 0.1px solid yellow;
+    cursor: pointer;
+    font-size: 52px;
+}
+
+
+
+
+/* banner section */
+
+
+.banner{
+    height: auto;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+
+}
+.banner .paragraph_banner{
+    display: flex;flex-direction: column;
+    gap: 40px;
+}
+.banner .paragraph_banner h1{
+    font-size: 45px;
+    color: black;
+    font-weight: 600;
+}
+.banner .paragraph_banner h1 span{
+    color: red;
+}
+.banner .paragraph_banner p{
+    font-size: 20px;
+    color: rgb(133, 123, 123);
+}
+
+.banner .image_banner {
+    display: grid;
+    grid-template-columns: 150px 150px 150px ;
+    grid-template-rows: 150px 150px;
+   
+justify-content: space-around;
+}
+.banner .image_banner img{
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (max-width: 768px) {
+
+    .liveDemo{
+        width: 100%;
+        height: 1000px;
+        
+        
+    }
+    .liveDemo .noramllive{
+        background-color: transparent;
+        width: 100%;
+        height: 12%;
+        
+    }
+    
+    .liveDemo .cartslive{
+        height: 85%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-evenly;
+    }
+    .liveDemo .cartslive .cardinfo{
+        width: 80%;
+        height: 30%;
+        /* border: 2px solid black; */
+        background-color: rgb(232, 234, 238);
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        border-radius: 20px;
+        gap: 10px;
+        border: 0.1px solid transparent;
+        /* padding-left: 20px; */
+    
+    }
+    
+}
+
+@media (max-width:420px){
+    .liveDemo{
+        width: 100%;
+        height: 1500px;
+        background-color: rgb(192, 212, 219);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        /* flex-direction: column; */
+        flex-direction: column;
+        
+    }
+    .liveDemo .noramllive{
+        background-color: transparent;
+        width: 100%;
+        height: 12%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        padding-left: 10px;
+    }
+    .liveDemo .noramllive span{
+        color: red;
+    }
+    .liveDemo .cartslive{
+        height: 85%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-evenly;
+    }
+    .liveDemo .cartslive .cardinfo{
+        width: 80%;
+        height: 30%;
+        /* border: 2px solid black; */
+        background-color: rgb(232, 234, 238);
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        border-radius: 20px;
+        gap: 10px;
+        border: 0.1px solid transparent;
+        /* padding-left: 20px; */
+    
+    }
+    .liveDemo .cartslive .cardinfo:hover{
+    border: 0.1px solid blueviolet;
+    }
+    .liveDemo .cartslive .cardinfo p {
+        font-size: 20px;
+        padding-left:20px;
+        padding-right: 20px;
+        font-weight: 600;
+        color: black;
+    }
+    .liveDemo .cartslive .cardinfo span {
+        font-size: 15px;
+        padding-left:20px;
+        padding-right: 20px;
+    
+        color: rgb(70, 64, 64);
+    }
+    .liveDemo .cartslive .cardinfo .images{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        position: relative;
+        top: -40px;
+        background-color: whitesmoke;
+        border: 0.1px solid yellowgreen;
+    }
+    .liveDemo .cartslive .cardinfo .images p{
+        font-size: 50px;
+    }
+    .liveDemo .cartslive .cardinfo .images:hover{
+        background-color: skyblue;
+        border: 0.1px solid yellow;
+        cursor: pointer;
+        font-size: 52px;
+    }
+
+
+
+    
+.banner{
+    height: auto;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+
+}
+.banner .paragraph_banner{
+    display: flex;flex-direction: column;
+    gap: 10px;
+}
+.banner .paragraph_banner h1{
+    font-size: 25px;
+    color: black;
+    font-weight: 600;
+}
+.banner .paragraph_banner h1 span{
+    color: red;
+}
+.banner .paragraph_banner p{
+    font-size: 16px;
+    color: rgb(133, 123, 123);
+}
+
+.banner .image_banner {
+    display: grid;
+    grid-template-columns: 100px 100px ;
+    grid-template-rows: 100px 100px 100px;
+   
+justify-content: space-around;
+}
+.banner .image_banner img{
+    width: 100%;
+    height: 100%;
+}
+}
