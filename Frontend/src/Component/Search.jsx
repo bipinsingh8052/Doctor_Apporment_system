@@ -19,6 +19,7 @@ export default function Search() {
     const [search,setsearch]=useState({});
     const [Alldata,setAllData]=useState([]);
     const [name,setname]=useState("");
+    const [id,setid]=useState("");
     const [status,setStatus]=useState(true);
     const [bookinput,setbookinput]=useState({});
 
@@ -27,8 +28,9 @@ export default function Search() {
 
     const handleClose = () => setShow(false);
     
-    const handleShow = (name) =>{ setShow(true)
+    const handleShow = (name,id) =>{ setShow(true)
         setname(name)
+        setid(id);
     };
 
 
@@ -157,7 +159,7 @@ useEffect(()=>{loading()
                             <p><span><IoMdCall/></span>{e.mobileNo}</p>
                             <p> <span><HiOutlineMailOpen/></span>{e.Email}</p>
                             <p><span><FaLocationDot/></span>{e.city}</p>
-                            <button onClick={()=>{handleShow(e.name)}}>Book Appoiment</button>
+                            <button onClick={()=>{handleShow(e.name,e._id)}}>Book Appoiment</button>
                         </div>
                         <div className="cart_right">
                         </div>
