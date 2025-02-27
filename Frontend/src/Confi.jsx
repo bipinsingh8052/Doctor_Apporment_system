@@ -1,2 +1,2 @@
-const Confi="http://localhost:9090";
+const Confi="https://doctor-apporment-system.onrender.com";
 export default Confi;
